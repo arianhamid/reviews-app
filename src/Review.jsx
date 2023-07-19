@@ -10,11 +10,21 @@ const Review = () => {
     setIndex((CurrentIndex) => {
       const newIndex = CurrentIndex + 1;
       console.log(newIndex);
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const prevPerson = () => {
-    setIndex((CurrentIndex) => CurrentIndex - 1);
+    setIndex((CurrentIndex) => {
+      const newIndex = CurrentIndex - 1;
+      return checkNumber(newIndex);
+    });
+  };
+  const checkNumber = (number) => {
+    if (number > people.length - 1) {
+      return 0;
+    } else if (number < 0) {
+      return people.length - 1;
+    } else return number;
   };
   return (
     <article className="review">
