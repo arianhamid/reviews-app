@@ -30,8 +30,14 @@ const Review = () => {
   };
   const randomPerson = () => {
     setIndex(() => {
-      const randomNumber = Math.random() * people.length;
-      return Math.floor(randomNumber);
+      let randomNumber = Math.floor(Math.random() * people.length);
+      if (randomNumber === index) {
+        randomNumber += 1;
+        console.log("duplicate number removed");
+        return checkNumber(randomNumber);
+      }
+      console.log(randomNumber);
+      return randomNumber;
     });
   };
   return (
